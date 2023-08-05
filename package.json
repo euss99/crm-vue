@@ -8,6 +8,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@formkit/themes": "^0.17.5",
+    "@formkit/vue": "^0.17.5",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
   },
