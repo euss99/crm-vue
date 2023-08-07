@@ -1,11 +1,26 @@
 <script setup>
+import { reactive, onMounted } from "vue";
+import { useRoute, useRouter } from "vue-router";
 import { FormKit } from "@formkit/vue";
-import { useRouter } from "vue-router";
 import RouterLink from "../components/UI/RouterLink.vue";
 import Heading from "../components/UI/Heading.vue";
 import ClienteServices from "../services/ClienteServices";
 
 const router = useRouter();
+const route = useRoute();
+const { id } = route.params;
+
+const formData = reactive({});
+
+onMounted(async () => {
+  try {
+    const response = await ClienteServices.getClient(id);
+    const { data } = response;
+    Object.assign(formData, data);
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 defineProps({
   titulo: {
@@ -16,8 +31,7 @@ defineProps({
 
 const handleSubmit = async (data) => {
   try {
-    data.estado = 1;
-    const response = await ClienteServices.postClient(data);
+    const response = await ClienteServices.patchClient(id, data);
     router.push({ name: "listado-clientes" });
   } catch (error) {
     console.log(error);
@@ -37,9 +51,10 @@ const handleSubmit = async (data) => {
       <div class="mx-auto md:w-2/3 py-20 px-6">
         <FormKit
           type="form"
-          submit-label="Agregar cliente"
+          submit-label="Guardar cambios"
           incomplete-message="No se pudo enviar, revisa los mensajes."
           @submit="handleSubmit"
+          :value="formData"
         >
           <FormKit
             type="text"
@@ -50,6 +65,7 @@ const handleSubmit = async (data) => {
             :validation-messages="{
               required: 'El nombre del cliente es obligatorio.',
             }"
+            v-model="formData.nombre"
           />
           <FormKit
             type="text"
@@ -60,6 +76,7 @@ const handleSubmit = async (data) => {
             :validation-messages="{
               required: 'El apellido del cliente es obligatorio.',
             }"
+            v-model="formData.apellido"
           />
           <FormKit
             type="email"
@@ -71,6 +88,7 @@ const handleSubmit = async (data) => {
               required: 'El email del cliente es obligatorio.',
               email: 'Coloca un email válido',
             }"
+            v-model="formData.email"
           />
           <FormKit
             type="text"
@@ -81,18 +99,21 @@ const handleSubmit = async (data) => {
             :validation-messages="{
               matches: 'El formato no es válido.',
             }"
+            v-model="formData.telefono"
           />
           <FormKit
             type="text"
             name="empresa"
             label="Empresa"
             placeholder="Empresa del cliente"
+            v-model="formData.empresa"
           />
           <FormKit
             type="text"
             name="puesto"
             label="Puesto"
             placeholder="Puesto del cliente"
+            v-model="formData.puesto"
           />
         </FormKit>
       </div>

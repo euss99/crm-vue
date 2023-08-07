@@ -1,12 +1,12 @@
 import { onMounted, ref, computed } from "vue";
-import axios from "../lib/axios";
+import ClienteServices from "../services/ClienteServices";
 
 export default function useClientes() {
   const clientes = ref([]);
 
   onMounted(async () => {
     try {
-      const response = await axios.get("/clientes");
+      const response = await ClienteServices.getClients();
       clientes.value = response.data;
     } catch (error) {
       console.log(error);
@@ -17,8 +17,32 @@ export default function useClientes() {
     return clientes.value.length > 0;
   });
 
+  const actualizarEstado = async (id, estado) => {
+    try {
+      await ClienteServices.patchStateClient(id, {
+        estado: !estado,
+      });
+
+      location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const eliminarCliente = async (id) => {
+    try {
+      await ClienteServices.deleteCliente(id);
+
+      location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return {
     clientes,
     existenClientes,
+    actualizarEstado,
+    eliminarCliente,
   };
 }

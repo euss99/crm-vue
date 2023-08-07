@@ -1,39 +1,23 @@
 {
   "clientes": [
     {
-      "nombre": "Uriel",
-      "apellido": "Solis",
-      "email": "urielsolis667@gmail.com",
-      "telefono": "999-471-2387",
-      "empresa": "Empresa",
-      "puesto": "Puesto",
-      "id": 1
-    },
-    {
-      "nombre": "Efrain",
-      "apellido": "Solis",
-      "email": "urielsolis@gmail.com",
-      "telefono": "999-471-2387",
-      "empresa": "Empresa 1",
-      "puesto": "Puesto 1",
-      "id": 2
-    },
-    {
-      "nombre": "Uriel Nuevo",
-      "apellido": "Solis",
-      "email": "urielsolis667@gmail.com",
-      "telefono": "999-471-2387",
-      "empresa": "Empresa 2",
-      "puesto": "Puesto 2",
+      "nombre": "Cliente 3",
+      "apellido": "Apellido 3",
+      "email": "hola@hola.com",
+      "telefono": "123-123-1234",
+      "empresa": "Empresa 3",
+      "puesto": "Puesto 3",
+      "estado": true,
       "id": 3
     },
     {
-      "nombre": "Uriel",
-      "apellido": "Solis",
-      "email": "urielsolis667@gmail.com",
-      "telefono": "999-471-2387",
-      "empresa": "Empresa",
-      "puesto": "Puesto",
+      "nombre": "Cliente 4",
+      "apellido": "Apellido 4",
+      "email": "hola@hola.com",
+      "telefono": "123-123-1234",
+      "empresa": "Empresa 4",
+      "puesto": "Puesto 4",
+      "estado": false,
       "id": 4
     }
   ]
