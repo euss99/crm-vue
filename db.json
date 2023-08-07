@@ -1,0 +1,40 @@
+{
+  "clientes": [
+    {
+      "nombre": "Uriel",
+      "apellido": "Solis",
+      "email": "urielsolis667@gmail.com",
+      "telefono": "999-471-2387",
+      "empresa": "Empresa",
+      "puesto": "Puesto",
+      "id": 1
+    },
+    {
+      "nombre": "Efrain",
+      "apellido": "Solis",
+      "email": "urielsolis@gmail.com",
+      "telefono": "999-471-2387",
+      "empresa": "Empresa 1",
+      "puesto": "Puesto 1",
+      "id": 2
+    },
+    {
+      "nombre": "Uriel Nuevo",
+      "apellido": "Solis",
+      "email": "urielsolis667@gmail.com",
+      "telefono": "999-471-2387",
+      "empresa": "Empresa 2",
+      "puesto": "Puesto 2",
+      "id": 3
+    },
+    {
+      "nombre": "Uriel",
+      "apellido": "Solis",
+      "email": "urielsolis667@gmail.com",
+      "telefono": "999-471-2387",
+      "empresa": "Empresa",
+      "puesto": "Puesto",
+      "id": 4
+    }
+  ]
+}
